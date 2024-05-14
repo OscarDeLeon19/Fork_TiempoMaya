@@ -1,13 +1,24 @@
 <?php session_start(); ?>
 <?php
 
+include('../helpers/functions.php');
+
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
+
+$sqlSeccion = "SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion, orden order by orden LIMIT 2;";
+
+if ($pagina == "Rueda Calendarica") {
+    $sqlSeccion = "SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion, orden order by orden LIMIT 1;";
+} else {
+    $sqlSeccion = "SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion, orden order by orden LIMIT 2;";
+}
+
 $informacion = $conn->query("SELECT htmlCodigo,seccion,nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' order by orden;");
-$secciones = $conn->query("SELECT seccion FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' group by seccion  order by orden;");
+$secciones = $conn->query($sqlSeccion);
 $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria='" . $pagina . "' AND nombre!='Informacion' AND seccion!='Informacion' order by orden;");
 
-
+$urlFondo = obtenerRutaFondo($conn);
 
 ?>
 
@@ -21,12 +32,21 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
-
+    <style>
+        #inicio {
+            width: 100%;
+            height: 100vh;
+            background: url('<?php echo $urlFondo; ?>') top center;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
 
 </head>
 <?php include "../NavBar2.php" ?>
 
 <body>
+    <?php echo resultToString($elementos) ?>
     <section id="inicio">
         <div id="inicioContainer" class="inicio-container">
 
@@ -54,7 +74,7 @@ $elementos = $conn->query("SELECT nombre FROM tiempomaya.pagina WHERE categoria=
                 foreach ($elementos as $elemento) {
                     if ($elemento['nombre'] != 'Uayeb' && $elemento['nombre'] == $info['nombre']) {
                         $tabla = strtolower($elemento['nombre']);
-                        $elementosEl = $conn->query("SELECT nombre FROM tiempo_maya." . $tabla . ";");
+                        $elementosEl = $conn->query("SELECT nombre FROM tiempomaya." . $tabla . ";");
                         $stringPrint .= "<ul>";
                         foreach ($elementosEl as $el) {
                             if ($el['nombre'] == "Informacion") {

@@ -1,19 +1,22 @@
 <?php session_start(); ?>
-<?php 
+<?php
 $conn = include "conexion/conexion.php";
+include('./helpers/functions.php');
 
-if(isset($_GET['fecha'])){
-$fecha_consultar = $_GET['fecha'];
-}else{
-date_default_timezone_set('US/Central');  
-$fecha_consultar = date("Y-m-d");
+if (isset($_GET['fecha'])) {
+    $fecha_consultar = $_GET['fecha'];
+} else {
+    date_default_timezone_set('US/Central');
+    $fecha_consultar = date("Y-m-d");
 }
 
 $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
-$cholquij = $nahual." ". strval($energia);
+$cholquij = $nahual . " " . strval($energia);
+
+$urlFondo = obtenerRutaFondo($conn);
 
 ?>
 <!DOCTYPE html>
@@ -26,6 +29,15 @@ $cholquij = $nahual." ". strval($energia);
     <?php include "blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="css/calculadora.css?v=<?php echo (rand()); ?>" />
+    <style>
+        #inicio {
+            width: 100%;
+            height: 100vh;
+            background: url('<?php echo $urlFondo; ?>') top center;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +52,7 @@ $cholquij = $nahual." ". strval($energia);
                     <form action="#" method="GET">
                         <div class="mb-1">
                             <label for="fecha" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>" >
+                            <input type="date" class="form-control" name="fecha" id="fecha" value="<?php echo isset($fecha_consultar) ? $fecha_consultar : ''; ?>">
                         </div>
                         <button type="submit" class="btn btn-get-started"><i class="far fa-clock"></i> Calcular</button>
                     </form>
@@ -57,7 +69,7 @@ $cholquij = $nahual." ". strval($energia);
                             <tbody>
                                 <tr>
                                     <th scope="row">Calendario Haab</th>
-                                    <td ><?php echo isset($haab) ? $haab : ''; ?></td>
+                                    <td><?php echo $haab[0] . " " . $haab[1]; ?></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Calendario Cholquij</th>

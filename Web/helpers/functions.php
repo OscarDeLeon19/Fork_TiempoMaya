@@ -150,4 +150,16 @@ function obtenerDescripcionNahual($conexion, $nombre)
     return Array($significado, $descripcion);
 }
 
+function obtenerDescripcionEnergia($conexion, $energia)
+{
+    $sql = "SELECT nombre, significado, nombreYucateco FROM tiempomaya.energia WHERE id = ".$energia.";";
+    $result = $conexion->query($sql);
+
+    $row = $result->fetch_assoc();
+    $nombre = $row["nombre"];
+    $significado = $row["significado"];
+    $nombreYucateco = $row["nombreYucateco"];
+    return Array($nombre, $significado, $nombreYucateco);
+}
+
 ?>

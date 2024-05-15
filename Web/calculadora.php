@@ -37,6 +37,14 @@ $datosNagual = obtenerDescripcionNahual($conn, $nahualImg);
 $significadoNagual = $datosNagual[0];
 $descNagual = $datosNagual[1];
 
+$datosEnergia = obtenerDescripcionEnergia($conn, $energia);
+
+$nombreEnergia = $datosEnergia[0];
+$significadoEnergia = $datosEnergia[1];
+$yucatecoEnergia = $datosEnergia[2];
+
+echo $datosEnergia[1];
+
 if (isset($_POST['calcular'])) {
     $dia = $_POST['dia'];
     $mes = $_POST['mes'];
@@ -165,6 +173,26 @@ if (isset($_POST['calcularGregoriano'])) {
                     <div class="texto-card">
                         <h3><?php echo $cholquij; ?></h3>
                         <p><span><?php echo $descNagual; ?></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Informacion de Energia -->
+        <div class="card-ward">
+            <div class="card">
+                <div class="header-card">
+                    <img src="<?php echo "./img/energia/" .  $nombreEnergia . ".png"; ?>" alt="Imagen de energia <?php echo $nombreEnergia; ?>">
+                </div>
+                <div class="footer-card">
+                    <div class="categoria-card">
+                        <span>Energia</span>
+                    </div>
+                    <div class="texto-card">
+                        <h3><?php echo $nombreEnergia; ?></h3>
+                        <h6>Significado</h6>
+                        <p><span><?php echo $significadoEnergia; ?></span></p>
+                        <h6>Nombre en Yucateco</h6>
+                        <p><span><?php echo $yucatecoEnergia; ?></span></p>
                     </div>
                 </div>
             </div>

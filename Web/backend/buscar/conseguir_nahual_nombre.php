@@ -9,5 +9,5 @@ if ($nahual < 0) {
 $Query = $conn->query("SELECT nombre FROM nahual WHERE idweb=".$nahual." ;");
 $row = mysqli_fetch_assoc($Query);
 $query = $row['nombre'];
-return $query;
+return $query."";
 ?>

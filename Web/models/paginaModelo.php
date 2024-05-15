@@ -48,7 +48,6 @@ $urlFondo = obtenerRutaFondo($conn);
 <?php include "../NavBar2.php" ?>
 
 <body>
-    <?php echo resultToString($elementos) ?>
     <section id="inicio">
         <div id="inicioContainer" class="inicio-container">
 

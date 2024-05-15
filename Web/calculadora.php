@@ -12,6 +12,7 @@ if (isset($_GET['fecha'])) {
 }
 
 $nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
+$nahualImg = $nahual;
 $energia = include 'backend/buscar/conseguir_energia_numero.php';
 $haab = include 'backend/buscar/conseguir_uinal_nombre.php';
 $cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
@@ -26,14 +27,15 @@ $fechaAnio = date('Y');
 $DatosCuentaLarga = obtenerCuentaLarga($fechaAnio . "-" . $fechaMes . "-" . $fechaDia);
 $componentes = explode(".", $DatosCuentaLarga);
 
-// Obtener los valores de los componentes
 $kinC = intval($componentes[4]);
 $uinalC = intval($componentes[3]);
 $tun = intval($componentes[2]);
 $katun = intval($componentes[1]);
 $baktun = intval($componentes[0]);
 
-echo "KIN " . $uinal;
+$datosNagual = obtenerDescripcionNahual($conn, $nahualImg);
+$significadoNagual = $datosNagual[0];
+$descNagual = $datosNagual[1];
 
 if (isset($_POST['calcular'])) {
     $dia = $_POST['dia'];
@@ -53,7 +55,6 @@ if (isset($_POST['calcular'])) {
     $tun = intval($componentes[2]);
     $katun = intval($componentes[1]);
     $baktun = intval($componentes[0]);
-
 }
 
 if (isset($_POST['calcularGregoriano'])) {
@@ -69,14 +70,15 @@ if (isset($_POST['calcularGregoriano'])) {
     $katun = $katunF;
     $baktun = $baktunF;
 
-    $fechaNormal = cuentaLargaAMayorGregoriano($baktun.".".$katun.".".$tun.".".$uinalC.".".$kinC);
+    $fechaNormal = cuentaLargaAMayorGregoriano($baktun . "." . $katun . "." . $tun . "." . $uinalC . "." . $kinC);
 
     $componentesFecha = explode("-", $fechaNormal);
     $fechaAnio = $componentesFecha[0];
     $fechaMes = $componentesFecha[1];
     $fechaDia = $componentesFecha[2];
-
 }
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,6 +150,28 @@ if (isset($_POST['calcularGregoriano'])) {
     </section>
     </div>
 
+    <!-- Infografia del Nahual del dia -->
+
+    <div class="containerCard">
+        <div class="card-ward">
+            <div class="card">
+                <div class="header-card">
+                    <img src="<?php echo "./img/nahual/" .  $nahualImg . ".png"; ?>" alt="Imagen de nagual <?php echo $nahualImg; ?>">
+                </div>
+                <div class="footer-card">
+                    <div class="categoria-card">
+                        <span><?php echo $significadoNagual; ?></span>
+                    </div>
+                    <div class="texto-card">
+                        <h3><?php echo $cholquij; ?></h3>
+                        <p><span><?php echo $descNagual; ?></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calculadora  -->
     <div class="containerCalculadora">
         <div class="calculadora">
             <h1> Calculadora Gregoriano - Cuenta Larga </h1>

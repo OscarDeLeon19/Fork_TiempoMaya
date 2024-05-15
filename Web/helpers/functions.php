@@ -139,4 +139,15 @@ function cuentaLargaAMayorGregoriano($cuentaLarga) {
     return $fechaGregoriano;
 }
 
+function obtenerDescripcionNahual($conexion, $nombre)
+{
+    $sql = "SELECT significado, descripcion FROM tiempomaya.nahual WHERE nombre = "."\"".$nombre."\""."";
+    $result = $conexion->query($sql);
+
+    $row = $result->fetch_assoc();
+    $significado = $row["significado"];
+    $descripcion = $row["descripcion"];
+    return Array($significado, $descripcion);
+}
+
 ?>

@@ -3,6 +3,8 @@
 
 include('../helpers/functions.php');
 
+date_default_timezone_set('US/Central');
+
 $conn = include '../conexion/conexion.php';
 $pagina = $_GET['pagina'];
 

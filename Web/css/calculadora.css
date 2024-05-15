@@ -69,3 +69,56 @@
         margin-top: 75px;
     }
 }
+
+/*
+    Cambios en el fork Oscar
+*/
+
+.calculadora{
+    margin-top: 10px;
+}
+
+.formCalculadora {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.labelCalculadora {
+    width: 100px;
+    text-align: right;
+    margin-right: 3px;
+}
+
+.inputNumber,
+#mes {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.inputSubmit {
+    width: auto;
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.inputSubmit:hover {
+    background-color: #0056b3;
+}
+
+.containerCalculadora {
+    width: 80%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 20px; /* Espacio interno */
+    background-color: #ffffff; /* Color de fondo */
+    border-radius: 10px; /* Borde redondeado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

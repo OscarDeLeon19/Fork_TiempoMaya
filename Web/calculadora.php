@@ -159,7 +159,9 @@ if (isset($_POST['calcularGregoriano'])) {
     </div>
 
     <!-- Infografia del Nahual del dia -->
-
+    <h2>
+        Nahual del Dia y Energia
+    </h2>
     <div class="containerCard">
         <div class="card-ward">
             <div class="card">
@@ -195,6 +197,36 @@ if (isset($_POST['calcularGregoriano'])) {
                         <p><span><?php echo $yucatecoEnergia; ?></span></p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cruz Maya -->
+    <div class="containerCard">
+        <div class="cruz">
+            <div class="centro">
+                <img src="./img/nahual/Iq'.png" alt="Imagen" width="100" height="100">
+            </div>
+            <div class="texto texto-arriba">
+                <span class="tituloTexto">
+                    Concepcion
+                </span>
+                <div> Tz'ikin </div>
+            </div>
+            <div class="texto texto-abajo"><span class="tituloTexto">
+                    Destino
+                </span>
+                <div> B'atz' </div>
+            </div>
+            <div class="texto texto-izquierda"><span class="tituloTexto">
+                    Mano Izquierda
+                </span>
+                <div> Toj </div>
+            </div>
+            <div class="texto texto-derecha"><span class="tituloTexto">
+                    Mano Derecha
+                </span>
+                <div> No'j </div>
             </div>
         </div>
     </div>

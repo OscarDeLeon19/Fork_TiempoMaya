@@ -167,3 +167,111 @@ img{
 .footer-card{
     padding: 0 1rem;
 }
+
+/*
+Cruz maya
+*/
+
+.cruz {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+}
+
+.centro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid black;
+}
+
+.tituloTexto{
+    font-weight: bold;
+}
+
+.texto {
+    position: absolute;
+    font-size: 18px;
+    text-align: center;
+}
+
+.texto, .tituloTexto{
+    text-align: center;
+}
+
+.texto-arriba {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid black;
+    width: 150px;
+    text-align: center;
+}
+
+.texto-abajo {
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid black;
+    width: 150px;
+}
+
+.texto-izquierda {
+    top: 50%;
+    left: -100px;
+    transform: translateY(-50%);
+    border: 2px solid black;
+    width: 150px;
+}
+
+.texto-derecha {
+    top: 50%;
+    right: -100px;
+    transform: translateY(-50%);
+    border: 2px solid black;
+    width: 150px;
+}
+
+/* Pseudoelemento para la línea vertical */
+.cruz::after {
+    content: "";
+    position: absolute;
+    border-left: 2px solid black;
+    height: calc(31% - 14px); /* Altura de la línea */
+    top: 37%; /* Posición vertical centrada */
+    left: 50%; /* Posición horizontal centrada */
+    transform: translateX(-50%) translateY(-100%); /* Ajuste para centrar */
+}
+
+.cruz::before {
+    content: "";
+    position: absolute;
+    border-left: 2px solid black;
+    height: calc(31% - 12px); /* Altura de la línea */
+    top: 91%; /* Posición vertical centrada */
+    left: 50%; /* Posición horizontal centrada */
+    transform: translateX(-50%) translateY(-100%); /* Ajuste para centrar */
+}
+
+.texto-izquierda::before {
+    content: "";
+    position: absolute;
+    border-top: 2px solid black;
+    width: calc(81% - 20px); /* Ancho de la línea */
+    top: 50%; /* Posición vertical centrada */
+    left: 169%; /* Posición horizontal centrada */
+    transform: translateY(-50%) translateX(-100%); /* Ajuste para centrar */
+}
+
+.texto-derecha::after {
+    content: "";
+    position: absolute;
+    border-top: 2px solid black;
+    width: calc(82% - 20px); /* Ancho de la línea */
+    top: 50%; /* Posición vertical centrada */
+    left: 0%; /* Posición horizontal centrada */
+    transform: translateY(-50%) translateX(-100%); /* Ajuste para centrar */
+}
+

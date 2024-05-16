@@ -4,7 +4,7 @@ use function PHPSTORM_META\type;
 
 session_start(); ?>
 <?php
-
+include('../helpers/functions.php');
 $conn = include '../conexion/conexion.php';
 $tabla = $_GET['elemento'];
 $table =strtolower($tabla);
@@ -12,7 +12,7 @@ $datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempomaya." . 
 $elementos = $datos;
 $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nombre='" . $tabla . "';");
 
-
+$urlFondo = obtenerRutaFondo($conn);
 
 ?>
 
@@ -26,7 +26,15 @@ $informacion = $conn->query("SELECT htmlCodigo FROM tiempomaya.pagina WHERE nomb
     <?php include "../blocks/bloquesCss.html" ?>
     <link rel="stylesheet" href="../css/estilo.css?v=<?php echo (rand()); ?>" />
     <link rel="stylesheet" href="../css/paginaModelo.css?v=<?php echo (rand()); ?>" />
-
+    <style>
+        #inicio {
+            width: 100%;
+            height: 100vh;
+            background: url('<?php echo $urlFondo; ?>') top center;
+            background-size: cover;
+            position: relative;
+        }
+    </style>
 
 </head>
 <?php include "../NavBar2.php" ?>

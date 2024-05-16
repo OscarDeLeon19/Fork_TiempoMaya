@@ -43,7 +43,8 @@ $nombreEnergia = $datosEnergia[0];
 $significadoEnergia = $datosEnergia[1];
 $yucatecoEnergia = $datosEnergia[2];
 
-echo $datosEnergia[1];
+$datosCruz = obtenerCruzNahual($conn, $nahualImg);
+$parrafosCruz = explode("\n", $datosCruz[5]);
 
 if (isset($_POST['calcular'])) {
     $dia = $_POST['dia'];
@@ -159,7 +160,7 @@ if (isset($_POST['calcularGregoriano'])) {
     </div>
 
     <!-- Infografia del Nahual del dia -->
-    <h2>
+    <h2 class="containerCard">
         Nahual del Dia y Energia
     </h2>
     <div class="containerCard">
@@ -202,33 +203,45 @@ if (isset($_POST['calcularGregoriano'])) {
     </div>
 
     <!-- Cruz Maya -->
+    <h2 class="containerCard">
+        Cruz maya de <?php echo $datosCruz[0]; ?>
+    </h2>
     <div class="containerCard">
         <div class="cruz">
             <div class="centro">
-                <img src="./img/nahual/Iq'.png" alt="Imagen" width="100" height="100">
+                <img src="<?php echo "./img/nahual/" .  $nahualImg . ".png"; ?>" alt="Imagen" width="100" height="100">
             </div>
             <div class="texto texto-arriba">
                 <span class="tituloTexto">
                     Concepcion
                 </span>
-                <div> Tz'ikin </div>
+                <div> <?php echo $datosCruz[1]; ?> </div>
             </div>
             <div class="texto texto-abajo"><span class="tituloTexto">
                     Destino
                 </span>
-                <div> B'atz' </div>
+                <div> <?php echo $datosCruz[4]; ?> </div>
             </div>
             <div class="texto texto-izquierda"><span class="tituloTexto">
                     Mano Izquierda
                 </span>
-                <div> Toj </div>
+                <div> <?php echo $datosCruz[3]; ?> </div>
             </div>
             <div class="texto texto-derecha"><span class="tituloTexto">
                     Mano Derecha
                 </span>
-                <div> No'j </div>
+                <div> <?php echo $datosCruz[2]; ?> </div>
             </div>
         </div>
+    </div>
+
+    <div class="containerCalculadora">
+        <h3>Significado de la Cruz Maya</h3>
+        <?php
+            foreach ($parrafosCruz as $parrafo) {
+                echo "<p> $parrafo </p>";
+            }
+        ?>
     </div>
 
     <!-- Calculadora  -->

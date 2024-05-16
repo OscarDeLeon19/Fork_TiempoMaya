@@ -162,4 +162,19 @@ function obtenerDescripcionEnergia($conexion, $energia)
     return Array($nombre, $significado, $nombreYucateco);
 }
 
+function obtenerCruzNahual($conexion, $nombre){
+    $sql = "SELECT nahual, concepcion, derecho, izquierdo, destino, descripcion FROM tiempomaya.cruznahual WHERE nahual = "."\"".$nombre."\""."";
+    $result = $conexion->query($sql);
+
+    $row = $result->fetch_assoc();
+    $nahual = $row["nahual"];
+    $concepcion = $row["concepcion"];
+    $derecho = $row["derecho"];
+    $izquierdo = $row["izquierdo"];
+    $destino = $row["destino"];
+    $descripcion = $row["descripcion"];
+    return Array($nahual, $concepcion, $derecho,$izquierdo,$destino,$descripcion);
+    // return $sql;
+}
+
 ?>

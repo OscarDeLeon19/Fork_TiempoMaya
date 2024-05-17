@@ -6,6 +6,7 @@ session_start(); ?>
 <?php
 include('../helpers/functions.php');
 $conn = include '../conexion/conexion.php';
+date_default_timezone_set('US/Central');
 $tabla = $_GET['elemento'];
 $table =strtolower($tabla);
 $datos = $conn->query("SELECT nombre,significado,htmlCodigo FROM tiempomaya." . $table . ";");

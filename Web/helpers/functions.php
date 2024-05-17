@@ -5,7 +5,7 @@ function obtenerRutaFondo($conexion)
 
     $hora_actual = date('H:i:s');
 
-    if ($hora_actual >= '06:00:00' && $hora_actual < '12:00:00') {
+    if ($hora_actual >= '06:00:00' && $hora_actual < '13:00:00') {
         $momento = "manana";
     } elseif ($hora_actual >= '12:00:00' && $hora_actual < '19:00:00') {
         $momento = "tarde";
@@ -175,6 +175,25 @@ function obtenerCruzNahual($conexion, $nombre){
     $descripcion = $row["descripcion"];
     return Array($nahual, $concepcion, $derecho,$izquierdo,$destino,$descripcion);
     // return $sql;
+}
+
+function convertirANumeroMaya($numero) {
+    $glifosMayas = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9","10", "11", "12", "13", "14", "15", "16", "17", "18", "19"];
+    $unidadesVigesimal = ["baktun", "katun", "tun", "uinal", "kin"];
+
+    $numeroMaya = "";
+    
+    foreach ($unidadesVigesimal as $unidad) {
+        $divisionEntera = intdiv($numero, 20);
+        $residuo = $numero % 20;
+        
+        $glifo = $glifosMayas[$residuo];
+        $numeroMaya = $glifo ."-". $numeroMaya;
+        
+        $numero = $divisionEntera;
+    }
+
+    return substr($numeroMaya, 0, -1);
 }
 
 ?>

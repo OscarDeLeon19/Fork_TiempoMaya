@@ -48,7 +48,6 @@ $urlFondo = obtenerRutaFondo($conn);
 </head>
 
 <body>
-  <?php echo $urlFondo ?>
   <?php include "NavBar.php" ?>
   <div>
     <section id="inicio">

@@ -39,7 +39,14 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 
                       if (is_array($kinesNav) || is_object($kinesNav)) {
                         foreach ($kinesNav as $kin) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $kin['nombre'] . "'>" . $kin['nombre'] . "</a></li>";
+                          $nombre = $kin['nombre'];
+                          $strstring = "<li class='nav-item'>";
+                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $kin['nombre'] . "'>";
+                          $strstring.= $kin['nombre'];
+                          $strstring.= "<img class=\"imageNav\" src=\"./img/kin/$nombre.png\" />";
+                          $strstring.= "</a>";
+                          $strstring.= "</li>";
+                          echo $strstring;
                         }
                       } ?>
                   </ul>
@@ -53,7 +60,14 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                     <div div style="width: 200px; height: 400px; overflow-y: scroll;">
                       <?php if (is_array($uinalesNav) || is_object($uinalesNav)) {
                         foreach ($uinalesNav as $uinal) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=uinal#" . $uinal['nombre'] . "'>" . $uinal['nombre'] . "</a></li>";
+                          $nombre = $uinal['nombre'];
+                          $strstring = "<li class='nav-item'>";
+                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $uinal['nombre'] . "'>";
+                          $strstring.= $uinal['nombre'];
+                          $strstring.= "<img class=\"imageNav\" src=\"./img/uinal/$nombre.png\" />";
+                          $strstring.= "</a>";
+                          $strstring.= "</li>";
+                          echo $strstring;
                         }
                       } ?>
                   </ul>
@@ -77,7 +91,14 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                     <div div style="width: 200px; height: 400px; overflow-y: scroll;">
                       <?php if (is_array($nahualesNav) || is_object($nahualesNav)) {
                         foreach ($nahualesNav as $nahual) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=nahual#" . $nahual['nombre'] . "'>" . $nahual['nombre'] . "</a></li>";
+                          $nombre = $nahual['nombre'];
+                          $strstring = "<li class='nav-item'>";
+                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $nahual['nombre'] . "'>";
+                          $strstring.= $nahual['nombre'];
+                          $strstring.= "<img class=\"imageNav\" src=\"./img/nahual/$nombre.png\" />";
+                          $strstring.= "</a>";
+                          $strstring.= "</li>";
+                          echo $strstring;
                         }
                       } ?>
                     </div>
@@ -92,7 +113,14 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                     <div div style="width: 200px; height:400px; overflow-y: scroll;">
                       <?php if (is_array($energiasNav) || is_object($energiasNav)) {
                         foreach ($energiasNav as $energia) {
-                          echo "<li class='nav-item'><a class='nav-link' href='models/paginaModeloElemento.php?elemento=energia#" . $energia['nombre'] . "'>" . $energia['nombre'] . "</a></li>";
+                          $nombre = $energia['nombre'];
+                          $strstring = "<li class='nav-item'>";
+                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $energia['nombre'] . "'>";
+                          $strstring.= $energia['nombre'];
+                          $strstring.= "<img class=\"imageNav\" src=\"./img/energia/$nombre.png\" />";
+                          $strstring.= "</a>";
+                          $strstring.= "</li>";
+                          echo $strstring;;
                         }
                       } ?>
                     </div>
@@ -102,6 +130,9 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
             </li>
             <li class="nav-item">
               <a class="nav-link" href="models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="numeros.php">Numeros Mayas</a>
             </li>
             
             <li class="nav-item"><a class="nav-link" href="calculadora.php">Calculadora</a></li>

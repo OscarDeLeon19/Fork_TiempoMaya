@@ -10,7 +10,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 <?php include "../mensaje.php"; ?>
 
 
-<header id="header" style="padding-left: 600px;">
+<header id="header" style="padding-left: 60px;">
   <div class="container">
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid">

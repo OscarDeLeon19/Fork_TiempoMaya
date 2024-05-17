@@ -6,7 +6,7 @@ include('./helpers/functions.php');
 date_default_timezone_set('US/Central');
 
 $urlFondo = obtenerRutaFondo($conn);
-$numerosMayas = [];
+$numerosMayas = ["0"];
 $numIngresado = 0;
 
 if (isset($_POST['calcularMaya'])) {
@@ -61,11 +61,13 @@ if (isset($_POST['calcularMaya'])) {
         <section id="inicio">
             <div id="inicioContainer" class="inicio-container">
                 <h1>Numeros Mayas</h1>
+                <a href="#Informacion" class='btn-get-started'>Informacion</a>
+                <a href="#Calculadora" class='btn-get-started'>Calculadora Decimal - Maya</a>
             </div>
         </section>
     </div>
 
-    <div class="bodyNumeros">
+    <div class="bodyNumeros" id="Informacion">
         <div class="containerNumeros">
             <h1>
                 Informacion de los numeros mayas
@@ -91,14 +93,15 @@ if (isset($_POST['calcularMaya'])) {
 
         </div>
     </div>
+    
     <div class="bodyNumeros">
         <h1>Calculadora Decimales a Maya</h1>
     </div>
-    <div class="bodyNumeros">
+    <div class="bodyNumeros" id="Calculadora">
         <div class="containerForm">
             <div class="prueba">
                 <h1>Numero Decimal</h1>
-                <form action="" method="post">
+                <form action="" method="post" id="formulario">
                     <label for="numero">Ingrese un número para la conversion:</label>
                     <input type="number" id="numero" name="numero" min="0" value="<?php echo $numIngresado; ?>" required>
                     <button type="submit" name="calcularMaya" value="Calcular">Calcular</button>
@@ -108,7 +111,7 @@ if (isset($_POST['calcularMaya'])) {
 
         <div class="containerForm">
             <h1>Numero en Maya</h1>
-            <div class="torre">
+            <div class="torre" id="torre">
                 <?php 
                     foreach($numerosMayas as $num){
                         $strprint = "<div class=\"nivel\">";
@@ -120,7 +123,6 @@ if (isset($_POST['calcularMaya'])) {
             </div>
         </div>
     </div>
-
     <?php include "blocks/bloquesJs1.html" ?>
 
 </body>

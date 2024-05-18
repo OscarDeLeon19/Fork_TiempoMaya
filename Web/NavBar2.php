@@ -11,7 +11,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 <?php include "../mensaje.php"; ?>
 
 
-<header id="header" style="padding-left: 100px;">
+<header id="header" style="padding-left: 600px;">
   <div class="container">
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid">
@@ -130,8 +130,17 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
               <a class="nav-link" href="../models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
             </li>
             
-            <li class="nav-item"><a class="nav-link" href="../numeros.php">Numeros Mayas</a></li>
-            <li class="nav-item"><a class="nav-link" href="../calculadora.php">Calculadora</a></li>
+            <li>
+              <a class="nav-link" href="#">Calculadoras &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="nav-item"><a class="nav-link" href="../calculadora.php">Calculadora</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../numeros.php">Numeros Mayas</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="../turismo.php">Turismo</a></li>
            
           </ul>
         </div>

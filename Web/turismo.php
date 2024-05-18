@@ -21,7 +21,7 @@ $nombre_uinal = $haab[1];
 
 $urlFondo = obtenerRutaFondo($conn);
 
-
+$result = $conn->query("SELECT nombre, descripcion, precio, horario, imagen FROM tiempomaya.lugar;");
 
 ?>
 <!DOCTYPE html>
@@ -57,10 +57,8 @@ $urlFondo = obtenerRutaFondo($conn);
                         <h1>Turismo Maya</h1>
                         <nav>
                             <ul>
-                                <li><a href="#">Inicio</a></li>
-                                <li><a href="#">Nosotros</a></li>
-                                <li><a href="#">Contacto</a></li>
-                                <li><a href="#">Explorar</a></li>
+                                <li><a href="#explorar">Explorar</a></li>
+                                <li><a href="#mapa">Mapa</a></li>
                             </ul>
                         </nav>
                     </header>
@@ -71,11 +69,10 @@ $urlFondo = obtenerRutaFondo($conn);
                             <div class="circulo"></div>
                         </div>
                         <div class="left">
-                            <h2>Tikal</h2>
+                            <h2>Lugares Turisticos Mayas en Guatemala</h2>
                             <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Possimus rem inventore id deleniti omnis, laboriosam natus quam distinctio eius provident placeat obcaecati quaerat nihil suscipit ut, accusamus debitis voluptates ullam.
+                                Las Ruinas Mayas son el testimonio viviente de una de las civilizaciones antiguas más avanzadas del mundo.Los Mayas habitaron en Mesoamérica entre 700AC y 900DC y sus magníficas construcciones tienen una historia muy interesante detrás de ellas
                             </p>
-                            <button>Explorar</button>
                             <div class="redes">
                                 <a href=""><i class="fa-brands fa-facebook"></i></a>
                                 <a href=""><i class="fa-brands fa-instagram"></i></a>
@@ -87,9 +84,9 @@ $urlFondo = obtenerRutaFondo($conn);
                                 Popular
                             </div>
                             <div class="contenedor-fotos">
-                                <img src="./img/fondo.png" alt="">
-                                <img src="./img/fondo_manana.jpg" alt="">
-                                <img src="./img/fondo_noche.jpeg" alt="">
+                                <img src="./img/turismo/inicio1.jpg" alt="">
+                                <img src="./img/turismo/inicio2.png" alt="">
+                                <img src="./img/turismo/inicio3.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -98,6 +95,80 @@ $urlFondo = obtenerRutaFondo($conn);
             </div>
         </section>
     </div>
+
+    <div class="center">
+        <div class="contenedor">
+            <h1 id="explorar">Los Mejores Lugares Turisticos Mayas en Guatemala</h1>
+            <p>
+                Los Mayas sobresalieron por ser excelentes astrólogos, agrónomos, matemáticos, desarrollaron un excelente sistema de escritura y uno de sus mayores logros fue, por supuesto, la arquitectura. Los restos de pirámides y templos que hoy vemos, un día albergaron a una población de millones de personas.
+            </p>
+            <p>
+                Su distintiva arquitectura varía en las diferentes regiones de Mesoamérica porque los Mayas vivían en ciudades-estado independientes; a pesar de eso, un estilo en general prevalece en todas las ciudades Mayas. Gracias a su avanzado conocimiento de matemática y astronomía, los Mayas alineaban sus templos y pirámides con los movimientos de los astros. Eran sin duda, ambiciosos observadores del cielo.
+            </p>
+            <p>
+                Viviendo entre la selva tropical, los Mayas estaban rodeados por un sofisticado sistema de acueductos, templos, pirámides, palacios, estelas, calzadas y canchas de juego de pelota. Los Mayas de las tierras bajas utilizaron piedra caliza, un tipo de material fuerte que ayuda a la preservación de las edificaciones que siguen en pie siglos después de su construcción. Restos de ciudades de esta magnífica civilización se encuentran esparcidos por toda el área que cubre Mesoamerica.
+            </p>
+            <?php
+            if ($result->num_rows > 0) {
+                // Recorrer los resultados fila por fila
+                while ($row = $result->fetch_assoc()) {
+                    // Obtener los valores de cada columna
+                    $nombre = $row["nombre"];
+                    $descripcion = $row["descripcion"];
+                    $precio = $row["precio"];
+                    $horario = $row["horario"];
+                    $imagen = $row["imagen"];
+
+                    $parrafos = explode("<>", $descripcion);
+                    // Mostrar los resultados (puedes personalizar esto según tus necesidades)
+                    echo "<div class='tarjeta'>";
+                    echo "<div class='info'>";
+                    echo "<h2>" . htmlspecialchars($nombre) . "</h2>";
+                    foreach ($parrafos as $parrafo) {
+                        echo "<p>" . htmlspecialchars($parrafo) . "</p>";
+                    }
+                    echo "<p><span class='spanLugar'>Precio: </span>" . htmlspecialchars($precio) . "</p>";
+                    echo "<p><span class='spanLugar'>Horario: </span>" . htmlspecialchars($horario) . "</p>";
+                    echo "</div>";
+                    echo "<div class='imagen'>";
+                    echo "<img src='" . htmlspecialchars($imagen) . "' alt='Imagen de " . htmlspecialchars($nombre) . "'>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            } else {
+                echo "No se encontraron resultados.";
+            }
+            ?>
+            <div class="contenedor">
+                <h3 id="mapa">
+                    Mapa
+                </h3>
+                <p>
+                    En este puedes obtener las ubicaciones de los lugares que hemos mencionado
+                </p>
+                <div>
+                    <div class="mapa">
+                        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1kOZji459Zpn4MsYIbsegq9_jtX0n1SA&ehbc=2E312F" width="640" height="480"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="tarjeta">
+                <div class="info">
+                    <h2>Tikal</h2>
+                    <p>
+                        La antigua ciudad Maya de Tikal, ubicada en el municipio de Flores, departamento de Petén, constituye el asentamiento prehispánico más extenso en Guatemala, cuya población pudo haber alcanzado los 100,000 habitantes durante su época de mayor esplendor. Tikal cuenta con alrededor de 5,000 edificios prehispánicos en un área de aproximadamente 16 km², de los cuales únicamente el 5% se encuentra restaurado y habilitado para su visitación. La ciudad representa una antigua capital que dominó un vasto territorio durante el período Clásico. El nombre de Tikal significa Ciudad de las Voces. El Parque Nacional Tikal fue creado en 1955 con una extensión de 575.86 km² (55,005 ha).
+                    </p>
+                    <p><span class="spanLugar">Precio: </span> Q200.00 a Q600 </p>
+                    <p><span class="spanLugar">Horario: </span> 8:00 a 18:00 </p>
+                </div>
+                <div class="imagen">
+                    <img src="./img/turismo/inicio1.jpg" alt="Imagen de Tikal">
+                </div>
+            </div> -->
+        </div>
+    </div>
+
 
     <?php include "blocks/bloquesJs1.html" ?>
 

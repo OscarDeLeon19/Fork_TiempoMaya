@@ -11,7 +11,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
 <?php include "mensaje.php"; ?>
 
 
-<header id="header" style="padding-left: 60px;">
+<header id="header" style="padding-left: 600px;">
   <div class="container">
     <nav class="navbar navbar-expand-lg" id="nav-menu-container">
       <div class="container-fluid">
@@ -41,11 +41,11 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                         foreach ($kinesNav as $kin) {
                           $nombre = $kin['nombre'];
                           $strstring = "<li class='nav-item'>";
-                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $kin['nombre'] . "'>";
-                          $strstring.= $kin['nombre'];
-                          $strstring.= "<img class=\"imageNav\" src=\"./img/kin/$nombre.png\" />";
-                          $strstring.= "</a>";
-                          $strstring.= "</li>";
+                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $kin['nombre'] . "'>";
+                          $strstring .= $kin['nombre'];
+                          $strstring .= "<img class=\"imageNav\" src=\"./img/kin/$nombre.png\" />";
+                          $strstring .= "</a>";
+                          $strstring .= "</li>";
                           echo $strstring;
                         }
                       } ?>
@@ -62,11 +62,11 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                         foreach ($uinalesNav as $uinal) {
                           $nombre = $uinal['nombre'];
                           $strstring = "<li class='nav-item'>";
-                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $uinal['nombre'] . "'>";
-                          $strstring.= $uinal['nombre'];
-                          $strstring.= "<img class=\"imageNav\" src=\"./img/uinal/$nombre.png\" />";
-                          $strstring.= "</a>";
-                          $strstring.= "</li>";
+                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $uinal['nombre'] . "'>";
+                          $strstring .= $uinal['nombre'];
+                          $strstring .= "<img class=\"imageNav\" src=\"./img/uinal/$nombre.png\" />";
+                          $strstring .= "</a>";
+                          $strstring .= "</li>";
                           echo $strstring;
                         }
                       } ?>
@@ -93,11 +93,11 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                         foreach ($nahualesNav as $nahual) {
                           $nombre = $nahual['nombre'];
                           $strstring = "<li class='nav-item'>";
-                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $nahual['nombre'] . "'>";
-                          $strstring.= $nahual['nombre'];
-                          $strstring.= "<img class=\"imageNav\" src=\"./img/nahual/$nombre.png\" />";
-                          $strstring.= "</a>";
-                          $strstring.= "</li>";
+                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $nahual['nombre'] . "'>";
+                          $strstring .= $nahual['nombre'];
+                          $strstring .= "<img class=\"imageNav\" src=\"./img/nahual/$nombre.png\" />";
+                          $strstring .= "</a>";
+                          $strstring .= "</li>";
                           echo $strstring;
                         }
                       } ?>
@@ -115,11 +115,11 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                         foreach ($energiasNav as $energia) {
                           $nombre = $energia['nombre'];
                           $strstring = "<li class='nav-item'>";
-                          $strstring.= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $energia['nombre'] . "'>";
-                          $strstring.= $energia['nombre'];
-                          $strstring.= "<img class=\"imageNav\" src=\"./img/energia/$nombre.png\" />";
-                          $strstring.= "</a>";
-                          $strstring.= "</li>";
+                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $energia['nombre'] . "'>";
+                          $strstring .= $energia['nombre'];
+                          $strstring .= "<img class=\"imageNav\" src=\"./img/energia/$nombre.png\" />";
+                          $strstring .= "</a>";
+                          $strstring .= "</li>";
                           echo $strstring;;
                         }
                       } ?>
@@ -131,12 +131,20 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
             <li class="nav-item">
               <a class="nav-link" href="models/paginaModelo.php?pagina=Rueda Calendarica">Rueda Calendarica</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="numeros.php">Numeros Mayas</a>
+
+
+            <li>
+              <a class="nav-link" href="#">Calculadoras &nbsp;&nbsp;&nbsp;&nbsp; </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li class="nav-item"><a class="nav-link" href="calculadora.php">Calculadora</a></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="numeros.php">Numeros Mayas</a>
+                </li>
+              </ul>
             </li>
-            
-            <li class="nav-item"><a class="nav-link" href="calculadora.php">Calculadora</a></li>
-           
+
+            <li class="nav-item"><a class="nav-link" href="turismo.php">Turismo</a></li>
+
           </ul>
         </div>
       </div>

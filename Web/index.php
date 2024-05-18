@@ -50,6 +50,7 @@ $urlFondo = obtenerRutaFondo($conn);
 <body>
   <?php include "NavBar.php" ?>
   <div>
+
     <section id="inicio">
       <div id="inicioContainer" class="inicio-container">
         <h1><br><br>Bienvenido al Tiempo Maya</h1>

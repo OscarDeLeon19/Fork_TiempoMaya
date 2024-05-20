@@ -110,9 +110,7 @@ $result = $conn->query("SELECT nombre, descripcion, precio, horario, imagen FROM
             </p>
             <?php
             if ($result->num_rows > 0) {
-                // Recorrer los resultados fila por fila
                 while ($row = $result->fetch_assoc()) {
-                    // Obtener los valores de cada columna
                     $nombre = $row["nombre"];
                     $descripcion = $row["descripcion"];
                     $precio = $row["precio"];
@@ -120,7 +118,6 @@ $result = $conn->query("SELECT nombre, descripcion, precio, horario, imagen FROM
                     $imagen = $row["imagen"];
 
                     $parrafos = explode("<>", $descripcion);
-                    // Mostrar los resultados (puedes personalizar esto según tus necesidades)
                     echo "<div class='tarjeta'>";
                     echo "<div class='info'>";
                     echo "<h2>" . htmlspecialchars($nombre) . "</h2>";
@@ -153,19 +150,6 @@ $result = $conn->query("SELECT nombre, descripcion, precio, horario, imagen FROM
                 </div>
             </div>
 
-            <!-- <div class="tarjeta">
-                <div class="info">
-                    <h2>Tikal</h2>
-                    <p>
-                        La antigua ciudad Maya de Tikal, ubicada en el municipio de Flores, departamento de Petén, constituye el asentamiento prehispánico más extenso en Guatemala, cuya población pudo haber alcanzado los 100,000 habitantes durante su época de mayor esplendor. Tikal cuenta con alrededor de 5,000 edificios prehispánicos en un área de aproximadamente 16 km², de los cuales únicamente el 5% se encuentra restaurado y habilitado para su visitación. La ciudad representa una antigua capital que dominó un vasto territorio durante el período Clásico. El nombre de Tikal significa Ciudad de las Voces. El Parque Nacional Tikal fue creado en 1955 con una extensión de 575.86 km² (55,005 ha).
-                    </p>
-                    <p><span class="spanLugar">Precio: </span> Q200.00 a Q600 </p>
-                    <p><span class="spanLugar">Horario: </span> 8:00 a 18:00 </p>
-                </div>
-                <div class="imagen">
-                    <img src="./img/turismo/inicio1.jpg" alt="Imagen de Tikal">
-                </div>
-            </div> -->
         </div>
     </div>
 

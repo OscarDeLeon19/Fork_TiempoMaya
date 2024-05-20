@@ -21,30 +21,6 @@ function obtenerRutaFondo($conexion)
     return $url;
 }
 
-function resultToString($result)
-{
-    $output = ''; // Inicializa una cadena vacía
-
-    // Verifica si hay resultados
-    if ($result && $result->num_rows > 0) {
-        // Itera sobre cada fila en el resultado
-        while ($row = $result->fetch_assoc()) {
-            // Itera sobre cada columna en la fila
-            foreach ($row as $key => $value) {
-                // Agrega el nombre de la columna y su valor a la cadena de salida
-                $output .= "$key: $value\n";
-            }
-            // Agrega una línea en blanco entre las filas
-            $output .= "\n";
-        }
-    } else {
-        // Si no hay resultados, agrega un mensaje indicando eso
-        $output = "No se encontraron resultados.";
-    }
-
-    return $output;
-}
-
 function obtenerCuentaLarga($fechaConsultar)
 {
     $fecha1 = new DateTime("01-01-2001");
@@ -120,20 +96,16 @@ function obtenerCuentaLarga($fechaConsultar)
 }
 
 function cuentaLargaAMayorGregoriano($cuentaLarga) {
-    // Separar los componentes de la cuenta larga maya
     $componentes = explode(".", $cuentaLarga);
 
-    // Obtener los valores de los componentes
     $number1 = intval($componentes[4]);
     $number2 = intval($componentes[3]);
     $number3 = intval($componentes[2]);
     $number4 = intval($componentes[1]);
     $number5 = intval($componentes[0]);
 
-    // Calcular los días julianos desde el inicio del calendario maya
     $diasJulianos = ($number5 - 12) * 144000 + ($number4 - 19) * 7200 + ($number3 - 7) * 360 + ($number2 - 15) * 20 + ($number1 - 8);
 
-    // Convertir los días julianos a una fecha en formato gregoriano
     $fechaGregoriano = date("Y-m-d", strtotime("2001-01-01 +$diasJulianos days"));
 
     return $fechaGregoriano;
@@ -189,6 +161,7 @@ function convertirANumeroMaya($numero) {
         
         $glifo = $glifosMayas[$residuo];
         $numeroMaya = $glifo ."-". $numeroMaya;
+
         
         $numero = $divisionEntera;
     }

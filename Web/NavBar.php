@@ -62,7 +62,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                         foreach ($uinalesNav as $uinal) {
                           $nombre = $uinal['nombre'];
                           $strstring = "<li class='nav-item'>";
-                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $uinal['nombre'] . "'>";
+                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=uinal#" . $uinal['nombre'] . "'>";
                           $strstring .= $uinal['nombre'];
                           $strstring .= "<img class=\"imageNav\" src=\"./img/uinal/$nombre.png\" />";
                           $strstring .= "</a>";
@@ -93,7 +93,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                         foreach ($nahualesNav as $nahual) {
                           $nombre = $nahual['nombre'];
                           $strstring = "<li class='nav-item'>";
-                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $nahual['nombre'] . "'>";
+                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=nahual#" . $nahual['nombre'] . "'>";
                           $strstring .= $nahual['nombre'];
                           $strstring .= "<img class=\"imageNav\" src=\"./img/nahual/$nombre.png\" />";
                           $strstring .= "</a>";
@@ -115,7 +115,7 @@ $periodosNav = $conn->query("SELECT nombre FROM tiempomaya.periodo order by orde
                         foreach ($energiasNav as $energia) {
                           $nombre = $energia['nombre'];
                           $strstring = "<li class='nav-item'>";
-                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=kin#" . $energia['nombre'] . "'>";
+                          $strstring .= "<a class='nav-link' href='models/paginaModeloElemento.php?elemento=energia#" . $energia['nombre'] . "'>";
                           $strstring .= $energia['nombre'];
                           $strstring .= "<img class=\"imageNav\" src=\"./img/energia/$nombre.png\" />";
                           $strstring .= "</a>";

@@ -109,47 +109,8 @@ INSERT INTO `categoria` (`nombre`) VALUES
 ('Uinal_6'),
 ('Uinal_7'),
 ('Uinal_8'),
-('Uinal_9'),
-('Fondo1'),
-('Fondo2'),
-('Fondo3'),
-('cruz01'),
-('cruz02'),
-('cruz03'),
-('cruz04'),
-('cruz05'),
-('cruz06'),
-('cruz07'),
-('cruz08'),
-('cruz09'),
-('cruz10'),
-('cruz11'),
-('cruz12'),
-('cruz13'),
-('cruz14'),
-('cruz15'),
-('cruz16'),
-('cruz17'),
-('cruz18'),
-('cruz19'),
-('cruz20');
+('Uinal_9');
 -- --------------------------------------------------------
-
--- FONDOS
-
-CREATE TABLE IF NOT EXISTS `fondos` (
-  `idFondo` int(11)  PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(30) NOT NULL,
-  `momento` varchar(15) NOT NULL,
-  `ruta` varchar(100) NOT NULL,
-  `categoria` varchar(100) NOT NULL,
-  KEY `fk_fondo_categoria1_idx` (`categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-INSERT INTO `fondos` (`nombre`, `momento`, `ruta`, `categoria`) VALUES
-("Fondo de la manana", "manana", "../img/fondo_manana.jpg", "Fondo1"),
-("Fondo de la tarde", "tarde", "../img/fondo.png", "Fondo2"),
-("Fondo de la noche", "noche", "../img/fondo_noche.jpeg", "Fondo3");
 
 --
 -- Estructura de tabla para la tabla `energia`
@@ -388,12 +349,7 @@ INSERT INTO `periodo` (`orden`, `nombre`, `fechaInicio`, `fechaFin`, `ACInicio`,
 (1, 'PreClasico', '1500', '292', 'A.C', 'D.C', '<p>Las primeras manifestaciones de vida sedentaria en el área maya se desarrollaron en la región Costa del Pacífico y del Piamonte y corresponden al periodo preclásico.</p>', '<p>El período <strong>Preclásico Temprano</strong> indica el momento en que las sociedades mayas contaron con rasgos culturales propios que los distinguen de otros grupos mesoamericanos. Las sociedades son ya aldeas agrícolas sedentarias, por lo que aparece por primera vez la cerámica. En la Costa Pacífica este período inicia alrededor del año 1,800 a.C., pero en el resto del área Maya se define a partir del 1,000 o 1,200 a.C.</p>', 'PreClasico');
 
 
--- inserts into periodo
 
--- FONDO
-ALTER TABLE `fondos`
-  ADD CONSTRAINT `fk_fondo_categoria1` FOREIGN KEY (`categoria`) REFERENCES `categoria` (`nombre`);
---
 -- Filtros para la tabla `energia`
 --
 ALTER TABLE `energia`

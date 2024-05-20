@@ -8,7 +8,7 @@ function obtenerRutaFondo($conexion)
     if ($hora_actual >= '06:00:00' && $hora_actual < '13:00:00') {
         $momento = "manana";
     } elseif ($hora_actual >= '12:00:00' && $hora_actual < '19:00:00') {
-        $momento = "tarde";
+        $momento = "manana";
     } else {
         $momento = "noche";
     }

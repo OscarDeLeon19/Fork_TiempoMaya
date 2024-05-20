@@ -9,16 +9,6 @@ if (isset($_GET['fecha'])) {
     $fecha_consultar = date("Y-m-d");
 }
 
-$nahual = include 'backend/buscar/conseguir_nahual_nombre.php';
-$energia = include 'backend/buscar/conseguir_energia_numero.php';
-$haab = include 'backend/buscar/conseguir_uinal_nombre.php';
-$cuenta_larga = include 'backend/buscar/conseguir_fecha_cuenta_larga.php';
-$cholquij = $nahual . " " . strval($energia);
-$nombre_nahual = $nahual;
-$numero_energia = strval($energia);
-$fecha_haab = $haab[0];
-$nombre_uinal = $haab[1];
-
 $urlFondo = obtenerRutaFondo($conn);
 
 $result = $conn->query("SELECT nombre, descripcion, precio, horario, imagen FROM tiempomaya.lugar;");

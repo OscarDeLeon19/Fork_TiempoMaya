@@ -1,9 +1,10 @@
 <?php session_start(); ?>
 <?php
+date_default_timezone_set('US/Central');
+
 $conn = include "conexion/conexion.php";
 include('./helpers/functions.php');
 
-date_default_timezone_set('US/Central');
 
 $urlFondo = obtenerRutaFondo($conn);
 $numerosMayas = ["0"];

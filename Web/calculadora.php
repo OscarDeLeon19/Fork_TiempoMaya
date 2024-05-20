@@ -38,7 +38,6 @@ $significadoNagual = $datosNagual[0];
 $descNagual = $datosNagual[1];
 
 $datosEnergia = obtenerDescripcionEnergia($conn, $energia);
-
 $nombreEnergia = $datosEnergia[0];
 $significadoEnergia = $datosEnergia[1];
 $yucatecoEnergia = $datosEnergia[2];
